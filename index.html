@@ -1,735 +1,705 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>旅のしおり · 上高地 × 野尻湖 · 2026</title>
-  <style>
-    :root {
-      --bg:        #1c2b38;
-      --bg2:       #162230;
-      --paper:     #f2e6cc;
-      --paper2:    #e8d8b0;
-      --paper3:    #f8f0dc;
-      --ink:       #1c2b38;
-      --ink-mid:   #3d4f5c;
-      --ink-muted: #7a8878;
-      --rust:      #7a4820;
-      --rust-dim:  rgba(122,72,32,0.12);
-      --forest:    #2a5028;
-      --red:       #a02020;
-      --amber:     #8b5c18;
-      --border:    #c4a870;
-      --border2:   #a08a50;
-      --div:       #d8c898;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    a { color: var(--rust); text-decoration: none; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅のしおり · 上高地 × 野尻湖 · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Klee+One&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:  #f5ead0;
+  --paper2: #ece0ba;
+  --paper3: #faf5e8;
+  --ink:    #2c1f14;
+  --mid:    #5c4030;
+  --muted:  #9a8060;
+  --green:  #3d6b42;
+  --red:    #a04030;
+  --sepia:  #6a5030;
+  --bdr:    rgba(106,80,48,.3);
+  --bdrS:   rgba(106,80,48,.65);
+  --shd:    rgba(44,31,20,.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Klee One','Hiragino Kaku Gothic ProN',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:14px;
+  line-height:1.7;
+  background-image:
+    radial-gradient(ellipse at 15% 40%,rgba(180,140,80,.07) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 70%,rgba(140,100,60,.05) 0%,transparent 45%);
+}
+a{color:var(--green);text-decoration:none}
+.page{max-width:540px;margin:0 auto;padding-bottom:80px}
 
-    .page { max-width: 600px; margin: 0 auto; padding-bottom: 0; }
+/* ───── COVER ───── */
+.cover{
+  height:100vh;height:100svh;
+  position:relative;
+  background:linear-gradient(175deg,#080f1e 0%,#0d1a2a 50%,#121e14 100%);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+.cover-svg{position:absolute;inset:0;width:100%;height:100%}
+.cover-body{
+  position:relative;z-index:10;
+  text-align:center;padding:0 28px;
+  margin-top:-40px;
+}
+.cover-eyebrow{
+  font-family:'Caveat',cursive;
+  font-size:14px;letter-spacing:4px;
+  color:rgba(210,185,140,.65);
+  margin-bottom:14px;
+  opacity:0;animation:fadeUp .6s .3s forwards;
+}
+.cover-title{
+  font-family:'Caveat',cursive;
+  font-size:clamp(52px,16vw,72px);
+  font-weight:700;
+  color:#f5ead0;
+  line-height:1.0;
+  margin-bottom:18px;
+}
+.cc{
+  display:inline-block;
+  opacity:0;transform:translateY(18px);
+  animation:charIn .5s forwards;
+}
+.cc.em{color:rgba(210,185,120,.85)}
+.cover-date{
+  font-family:'Caveat',cursive;
+  font-size:20px;color:rgba(210,185,140,.75);
+  margin-bottom:10px;
+  opacity:0;animation:fadeUp .6s 1.5s forwards;
+}
+.cover-members{
+  font-family:'Caveat',cursive;
+  font-size:15px;letter-spacing:2px;
+  color:rgba(180,160,120,.55);
+  opacity:0;animation:fadeUp .6s 1.7s forwards;
+}
+.cover-hint{
+  position:absolute;bottom:28px;left:50%;
+  transform:translateX(-50%);
+  text-align:center;z-index:10;
+}
+.cover-hint-txt{
+  font-family:'Caveat',cursive;
+  font-size:12px;letter-spacing:2px;
+  color:rgba(200,175,130,.45);
+  display:block;margin-bottom:4px;
+}
+.cover-arrow{
+  font-size:18px;color:rgba(200,175,130,.45);
+  display:block;animation:bounce 1.6s infinite;
+}
+@keyframes charIn{to{opacity:1;transform:none}}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
-    /* ── HERO ── */
-    .hero {
-      padding: 48px 24px 36px;
-      background: var(--bg);
-      position: relative;
-    }
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-    .hero-eyebrow::before, .hero-eyebrow::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(196,168,112,0.4);
-    }
-    .hero-eyebrow-text {
-      font-family: Georgia, serif;
-      font-size: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(196,168,112,0.75);
-    }
-    .hero-title {
-      font-family: Georgia, 'Times New Roman', 'YuMincho', serif;
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--paper);
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .hero-title em { color: rgba(196,168,112,0.85); font-style: normal; }
-    .hero-sub {
-      font-family: Georgia, serif;
-      font-size: 12px;
-      color: rgba(196,168,112,0.6);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-    .members { display: flex; gap: 8px; flex-wrap: wrap; }
-    .member {
-      font-family: Georgia, serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 14px;
-      border: 1px solid rgba(196,168,112,0.35);
-      color: rgba(196,168,112,0.55);
-    }
-    .member.me { border-color: rgba(196,168,112,0.85); color: var(--paper); }
+/* ───── SCROLL ANIMATIONS ───── */
+.anim{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.anim.in{opacity:1;transform:none}
+.anim-l{opacity:0;transform:translateX(-22px);transition:opacity .5s ease,transform .5s ease}
+.anim-l.in{opacity:1;transform:none}
+.tl-item{opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease}
+.tl-item.in{opacity:1;transform:none}
+.stamp{
+  opacity:0;transform:scale(0) rotate(-8deg);
+  transition:opacity .35s,transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.stamp.in{opacity:1;transform:scale(1) rotate(-1.5deg)}
 
-    /* ── DAY HEADER ── */
-    .day-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 13px 24px;
-      background: var(--bg2);
-      border-top: 1px solid rgba(196,168,112,0.2);
-      border-bottom: 2px solid var(--border);
-    }
-    .day-num {
-      font-family: Georgia, serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(196,168,112,0.75);
-    }
-    .day-title {
-      font-family: Georgia, serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--paper);
-    }
-    .day-date {
-      font-size: 11px;
-      color: rgba(196,168,112,0.55);
-      margin-left: auto;
-      letter-spacing: 0.5px;
-    }
+/* ───── DIVIDER ───── */
+.divider{
+  display:flex;align-items:center;gap:12px;
+  padding:36px 24px 4px;
+}
+.divider-txt{
+  font-family:'Caveat',cursive;
+  font-size:11px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap;
+}
+.divider-svg{flex:1;height:16px;overflow:visible}
+.divider-path{
+  stroke:var(--bdrS);stroke-width:1.5;
+  stroke-linecap:round;fill:none;
+  stroke-dasharray:400;stroke-dashoffset:400;
+  transition:stroke-dashoffset .9s ease;
+}
+.divider.in .divider-path{stroke-dashoffset:0}
 
-    /* ── TIMELINE ── */
-    .tl-wrap {
-      background: var(--paper);
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 27px,
-        rgba(0,0,0,0.04) 27px, rgba(0,0,0,0.04) 28px
-      );
-      padding: 4px 24px 8px;
-      border-bottom: 2px solid var(--border);
-    }
-    .tl-item {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 0 16px;
-    }
-    .tl-time {
-      font-family: Georgia, serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--rust);
-      text-align: right;
-      padding-top: 20px;
-      letter-spacing: 0.5px;
-      line-height: 1.2;
-      font-variant-numeric: tabular-nums;
-    }
-    .tl-right {
-      border-left: 1px solid var(--div);
-      padding: 16px 0 14px 18px;
-      position: relative;
-    }
-    .tl-right::before {
-      content: '';
-      position: absolute;
-      left: -4.5px;
-      top: 21px;
-      width: 8px;
-      height: 8px;
-      background: var(--paper);
-      border: 1.5px solid var(--rust);
-      border-radius: 50%;
-    }
-    .tl-name {
-      font-family: Georgia, serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.35;
-    }
-    .tl-desc { font-size: 12px; color: var(--ink-muted); margin-top: 4px; line-height: 1.5; }
-    .tl-box {
-      background: var(--paper2);
-      border-left: 2px solid var(--border2);
-      padding: 8px 12px;
-      margin-top: 8px;
-    }
-    .tl-box + .tl-box { margin-top: 4px; }
-    .tl-box-main { font-size: 13px; font-weight: 600; color: var(--ink); }
-    .tl-box-sub { font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
+/* ───── DAY BLOCK ───── */
+.day-block{padding:0 24px}
+.day-heading{
+  padding:20px 0 8px;
+  display:flex;align-items:baseline;gap:10px;
+}
+.day-num{
+  font-family:'Caveat',cursive;
+  font-size:40px;font-weight:700;color:var(--ink);line-height:1;
+}
+.day-num em{color:var(--green);font-style:normal}
+.day-name{font-family:'Caveat',cursive;font-size:19px;color:var(--mid)}
+.day-date{font-family:'Caveat',cursive;font-size:14px;color:var(--muted);margin-left:auto}
+.day-uline{width:100%;height:10px;overflow:visible;display:block;margin-top:-2px;margin-bottom:10px}
+.day-uline-path{
+  stroke:var(--sepia);stroke-width:1.5;stroke-linecap:round;fill:none;
+  stroke-dasharray:500;stroke-dashoffset:500;
+  transition:stroke-dashoffset .9s .1s ease;
+}
+.day-block.in .day-uline-path{stroke-dashoffset:0}
 
-    /* ── STAMPS ── */
-    .stamp {
-      display: inline-block;
-      font-family: Georgia, serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 2px 8px;
-      margin-top: 8px;
-      margin-right: 4px;
-      border: 1.5px solid currentColor;
-    }
-    .stamp-warn  { color: var(--amber); }
-    .stamp-ok    { color: var(--forest); }
-    .stamp-alert { color: var(--red); }
+/* ───── TIMELINE ───── */
+.timeline{padding:4px 0 20px;position:relative}
+.timeline::before{
+  content:'';position:absolute;
+  left:57px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,rgba(106,80,48,.25),transparent);
+}
+.tl-item{display:grid;grid-template-columns:50px 1fr;gap:0 14px;margin-bottom:2px}
+.tl-time{
+  font-family:'Caveat',cursive;font-size:12px;font-weight:600;
+  color:var(--sepia);text-align:right;
+  padding-top:18px;line-height:1.2;
+  font-variant-numeric:tabular-nums;
+}
+.tl-right{
+  padding:14px 0 12px 16px;
+  border-left:1px solid rgba(106,80,48,.22);
+  position:relative;
+}
+.tl-right::before{
+  content:'';position:absolute;
+  left:-5px;top:20px;
+  width:9px;height:9px;
+  background:var(--paper);
+  border:1.5px solid var(--sepia);
+  border-radius:50%;
+}
+.tl-name{font-family:'Caveat',cursive;font-size:17px;font-weight:600;color:var(--ink);line-height:1.4}
+.tl-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.6}
+.tl-box{
+  background:var(--paper2);
+  border-left:2.5px solid var(--sepia);
+  border-radius:0 4px 4px 0;
+  padding:8px 12px;margin-top:8px;
+}
+.tl-box+.tl-box{margin-top:4px}
+.tl-box-main{font-family:'Caveat',cursive;font-size:14px;font-weight:600;color:var(--ink)}
+.tl-box-sub{font-size:11px;color:var(--muted);margin-top:2px}
 
-    /* ── SECTION WRAP (cream) ── */
-    .sec-wrap {
-      background: var(--paper);
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 27px,
-        rgba(0,0,0,0.035) 27px, rgba(0,0,0,0.035) 28px
-      );
-      border-bottom: 2px solid var(--border);
-    }
-    .sec-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 13px 24px;
-      background: var(--bg2);
-      border-top: 1px solid rgba(196,168,112,0.2);
-      border-bottom: 2px solid var(--border);
-    }
-    .sec-title {
-      font-family: Georgia, serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(196,168,112,0.75);
-    }
-    .sec-rule { flex: 1; height: 1px; background: rgba(196,168,112,0.3); }
+/* ───── STAMPS ───── */
+.stamp{
+  display:inline-block;
+  font-family:'Caveat',cursive;
+  font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;margin-top:8px;margin-right:6px;
+  border:1.5px solid currentColor;
+  border-radius:2px 5px 3px 4px / 4px 2px 5px 3px;
+}
+.stamp-warn{color:var(--sepia)}
+.stamp-ok{color:var(--green)}
+.stamp-alert{color:var(--red)}
 
-    /* ── CARDS ── */
-    .card-list { padding: 16px 24px; }
-    .card {
-      background: var(--paper3);
-      border: 1px solid var(--border);
-      margin-bottom: 12px;
-    }
-    .card:last-child { margin-bottom: 0; }
-    .card-head {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--div);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .card-name { font-family: Georgia, serif; font-size: 16px; font-weight: 700; color: var(--ink); }
-    .card-loc  { font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
-    .card-body { padding: 0 16px; }
-    .card-links { padding: 10px 16px; border-top: 1px solid var(--div); display: flex; gap: 8px; flex-wrap: wrap; }
-    .info-row {
-      display: flex;
-      gap: 16px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--div);
-      align-items: flex-start;
-    }
-    .info-row:last-child { border-bottom: none; }
-    .info-key {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      min-width: 68px;
-      padding-top: 2px;
-    }
-    .info-val { font-size: 13px; color: var(--ink); flex: 1; line-height: 1.5; }
-    .code { font-family: 'SF Mono', 'Menlo', monospace; font-size: 12px; color: var(--rust); letter-spacing: 2px; }
-    .hl   { color: var(--rust); font-weight: 700; }
-    .link-btn {
-      display: inline-flex;
-      align-items: center;
-      font-family: Georgia, serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--rust);
-      padding: 4px 12px;
-      border: 1px solid var(--rust);
-      background: transparent;
-    }
+/* ───── SECTION WRAPPER ───── */
+.sec-wrap{padding:0 24px}
+.sec-label{
+  font-family:'Caveat',cursive;
+  font-size:12px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bdr)}
 
-    /* ── NOTES ── */
-    .notes-list { padding: 12px 24px 16px; }
-    .note {
-      display: flex;
-      gap: 12px;
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--amber);
-      background: var(--paper3);
-      margin-bottom: 8px;
-    }
-    .note:last-child { margin-bottom: 0; }
-    .note.note-red { border-left-color: var(--red); }
-    .note-icon { font-size: 16px; flex-shrink: 0; }
-    .note-body { flex: 1; }
-    .note-title {
-      font-family: Georgia, serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 4px;
-    }
-    .note.note-red .note-title { color: var(--red); }
-    .note-text { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+/* ───── CARDS ───── */
+.card{
+  background:var(--paper3);
+  border:1px solid var(--bdrS);
+  border-radius:3px 8px 5px 6px / 6px 3px 8px 5px;
+  box-shadow:2px 3px 0 var(--shd);
+  margin-bottom:14px;overflow:hidden;
+}
+.card:last-child{margin-bottom:0}
+.card-head{
+  padding:13px 16px;border-bottom:1px solid var(--bdr);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+}
+.card-name{font-family:'Caveat',cursive;font-size:21px;font-weight:700;color:var(--ink);line-height:1.2}
+.card-loc{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
+.card-body{padding:0 16px}
+.card-links{padding:10px 16px;border-top:1px solid var(--bdr);display:flex;gap:8px;flex-wrap:wrap}
+.info-row{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--bdr);align-items:flex-start}
+.info-row:last-child{border-bottom:none}
+.info-key{
+  font-family:'Caveat',cursive;font-size:10px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+  color:var(--muted);min-width:62px;padding-top:2px;
+}
+.info-val{font-size:13px;color:var(--ink);flex:1;line-height:1.6}
+.code{font-family:'Caveat',cursive;font-size:16px;color:var(--sepia);letter-spacing:2px;font-weight:600}
+.hl{color:var(--red);font-weight:600}
+.link-btn{
+  display:inline-flex;align-items:center;
+  font-family:'Caveat',cursive;font-size:13px;font-weight:600;
+  color:var(--green);padding:4px 12px;
+  border:1px solid var(--green);
+  border-radius:2px 5px 3px 4px / 4px 2px 5px 3px;
+  background:transparent;
+}
 
-    /* ── AMENITY TABLE ── */
-    .amenity-wrap { padding: 16px 24px; }
-    .amenity-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); }
-    .amenity-table th {
-      font-family: Georgia, serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 8px 12px;
-      color: var(--ink-mid);
-      background: var(--paper2);
-      border-bottom: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      text-align: left;
-    }
-    .amenity-table th:last-child { border-right: none; }
-    .amenity-table td {
-      padding: 8px 12px;
-      font-size: 12px;
-      border-bottom: 1px solid var(--div);
-      border-right: 1px solid var(--div);
-    }
-    .amenity-table td:last-child { border-right: none; }
-    .amenity-table tr:last-child td { border-bottom: none; }
-    .ag-ok   { color: var(--forest); font-weight: 700; }
-    .ag-no   { color: var(--ink-muted); }
-    .ag-need { color: var(--amber); font-weight: 600; }
+/* ───── NOTES ───── */
+.note{
+  display:flex;gap:12px;
+  padding:12px 14px;
+  border:1px solid var(--bdrS);border-left:3px solid var(--sepia);
+  border-radius:0 5px 4px 0;
+  background:var(--paper3);margin-bottom:10px;
+  box-shadow:2px 2px 0 var(--shd);
+}
+.note:last-child{margin-bottom:0}
+.note.note-red{border-left-color:var(--red)}
+.note-icon{font-size:18px;flex-shrink:0;padding-top:2px}
+.note-title{font-family:'Caveat',cursive;font-size:13px;font-weight:700;letter-spacing:1px;color:var(--sepia);margin-bottom:3px}
+.note.note-red .note-title{color:var(--red)}
+.note-text{font-size:12px;color:var(--muted);line-height:1.6}
 
-    /* ── CHECKLIST ── */
-    .check-wrap { padding: 0 24px 16px; }
-    .check-group-label {
-      font-family: Georgia, serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      padding: 12px 0 6px;
-      border-bottom: 1px solid var(--div);
-    }
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--div);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .check-item:last-child { border-bottom: none; }
-    .check-box {
-      width: 16px;
-      height: 16px;
-      border: 1.5px solid var(--border2);
-      flex-shrink: 0;
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--paper);
-    }
-    .check-item.checked .check-box { background: var(--rust); border-color: var(--rust); }
-    .check-item.checked .check-box::after { content: '✓'; color: var(--paper); font-size: 10px; font-weight: 900; }
-    .check-item.checked .check-text { color: var(--ink-muted); text-decoration: line-through; }
-    .check-text { font-size: 13px; color: var(--ink); line-height: 1.4; }
-    .check-note { font-size: 11px; color: var(--ink-muted); display: block; margin-top: 2px; }
+/* ───── AMENITY ───── */
+.amenity-table{width:100%;border-collapse:collapse;border:1px solid var(--bdrS)}
+.amenity-table th{
+  font-family:'Caveat',cursive;font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;padding:8px 12px;
+  color:var(--mid);background:var(--paper2);
+  border-bottom:1px solid var(--bdrS);border-right:1px solid var(--bdr);text-align:left;
+}
+.amenity-table th:last-child{border-right:none}
+.amenity-table td{padding:8px 12px;font-size:12px;border-bottom:1px solid var(--bdr);border-right:1px solid var(--bdr)}
+.amenity-table td:last-child{border-right:none}
+.amenity-table tr:last-child td{border-bottom:none}
+.ag-ok{color:var(--green);font-weight:700}
+.ag-no{color:var(--muted)}
+.ag-need{color:var(--red);font-weight:600}
 
-    /* ── COST TABLE ── */
-    .cost-wrap { padding: 16px 24px; }
-    .cost-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); }
-    .cost-table td, .cost-table th { padding: 9px 12px; border-bottom: 1px solid var(--div); font-size: 13px; color: var(--ink); vertical-align: top; }
-    .cost-sec th {
-      font-family: Georgia, serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      background: var(--paper2);
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-      padding: 7px 12px 6px;
-    }
-    .cost-key { color: var(--ink-mid); font-size: 12px; }
-    .cost-val { text-align: right; color: var(--rust); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
-    .cost-sub td { background: var(--paper2); font-weight: 700; font-size: 12px; color: var(--ink-mid); border-bottom: 1px solid var(--border); }
-    .cost-sub .cost-val { color: var(--ink); }
-    .cost-total td { background: var(--paper2); font-family: Georgia, serif; font-weight: 700; font-size: 14px; border-top: 2px solid var(--border2); border-bottom: 1px solid var(--div); }
-    .cost-total .cost-val { color: var(--rust); font-size: 15px; }
-    .cost-ref td { background: var(--paper3); font-size: 11px; border-bottom: 1px dashed var(--div); }
-    .cost-ref .cost-key { color: var(--ink-muted); }
-    .cost-ref .cost-val { color: var(--ink-mid); font-size: 11px; }
-    .cost-ref-head th {
-      font-family: Georgia, serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      background: var(--paper3);
-      text-align: left;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px dashed var(--div);
-      padding: 7px 12px 6px;
-    }
-    .cost-note-small { font-size: 10px; color: var(--ink-muted); display: block; margin-top: 2px; }
-    .cost-est {
-      font-family: Georgia, serif;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: var(--amber);
-      border: 1px solid var(--amber);
-      padding: 1px 4px;
-      margin-left: 4px;
-      vertical-align: middle;
-      text-transform: uppercase;
-    }
-    .cost-footnote {
-      font-size: 11px;
-      color: var(--ink-muted);
-      margin-top: 10px;
-      line-height: 1.7;
-    }
+/* ───── CHECKLIST ───── */
+.chk-group-lbl{
+  font-family:'Caveat',cursive;font-size:11px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);
+  padding:14px 0 6px;border-bottom:1px dashed var(--bdr);
+}
+.check-item{
+  display:flex;align-items:flex-start;gap:13px;
+  padding:10px 0;border-bottom:1px solid var(--bdr);
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
+.check-item:last-child{border-bottom:none}
+.check-box{
+  width:20px;height:20px;
+  border:1.5px solid var(--muted);border-radius:50%;
+  flex-shrink:0;margin-top:1px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--paper);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.check-item.checked .check-box{background:var(--green);border-color:var(--green);transform:scale(1.1)}
+.check-item.checked .check-box::after{content:'✓';color:#fff;font-size:11px;font-weight:900}
+.check-item.checked .check-text{color:var(--muted);text-decoration:line-through}
+.check-text{font-size:13px;color:var(--ink);line-height:1.4}
+.check-note{font-size:11px;color:var(--muted);display:block;margin-top:2px}
 
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--bg2);
-      padding: 28px 24px 32px;
-      text-align: center;
-    }
-    .footer-rule {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .footer-rule::before, .footer-rule::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(196,168,112,0.3);
-    }
-    .footer-text {
-      font-family: Georgia, serif;
-      font-size: 10px;
-      color: rgba(196,168,112,0.45);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-  </style>
+/* ───── COST TABLE ───── */
+.cost-table{width:100%;border-collapse:collapse;border:1px solid var(--bdrS)}
+.cost-table td{padding:9px 12px;border-bottom:1px solid var(--bdr);font-size:13px;color:var(--ink);vertical-align:top}
+.cost-sec th{
+  font-family:'Caveat',cursive;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--mid);background:var(--paper2);text-align:left;
+  border-bottom:1px solid var(--bdrS);padding:7px 12px;
+}
+.cost-key{color:var(--mid);font-size:12px}
+.cost-val{text-align:right;color:var(--sepia);font-family:'Caveat',cursive;font-size:16px;font-weight:600;white-space:nowrap}
+.cost-sub td{background:var(--paper2);font-weight:700;border-bottom:1px solid var(--bdrS)}
+.cost-sub .cost-val{color:var(--ink)}
+.cost-total td{background:var(--paper2);font-family:'Caveat',cursive;font-weight:700;font-size:17px;border-top:2px solid var(--sepia);border-bottom:none}
+.cost-total .cost-val{color:var(--red);font-size:20px}
+.cost-ref td{background:var(--paper3);font-size:11px;border-bottom:1px dashed var(--bdr)}
+.cost-ref .cost-val{color:var(--mid);font-size:13px;font-family:'Caveat',cursive}
+.cost-ref-head th{
+  font-family:'Caveat',cursive;font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+  background:var(--paper3);text-align:left;
+  border-top:1px solid var(--bdr);border-bottom:1px dashed var(--bdr);padding:7px 12px;
+}
+.cost-note-small{font-size:10px;color:var(--muted);display:block;margin-top:2px}
+.cost-est{
+  font-family:'Caveat',cursive;font-size:9px;font-weight:600;
+  color:var(--sepia);border:1px solid var(--sepia);
+  padding:0 4px;margin-left:4px;border-radius:2px;
+  vertical-align:middle;opacity:.7;
+}
+.cost-footnote{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.7}
+
+/* ───── FOOTER ───── */
+.footer{text-align:center;padding:40px 24px 60px}
+.footer-text{font-family:'Caveat',cursive;font-size:15px;color:var(--muted);letter-spacing:2px}
+</style>
 </head>
 <body>
-<div class="page">
 
-<!-- ════════════════════ HERO ════════════════════ -->
-<div class="hero">
-  <div class="hero-eyebrow">
-    <span class="hero-eyebrow-text">旅のしおり · 2026</span>
-  </div>
-  <div class="hero-title">上高地 <em>×</em><br>野尻湖</div>
-  <div class="hero-sub">Jul 10 – 12 &nbsp;·&nbsp; 2泊3日 &nbsp;·&nbsp; 3名</div>
-  <div class="members">
-    <div class="member me">AKI</div>
-    <div class="member">TETSUPAY</div>
-    <div class="member">MAKOTO</div>
-  </div>
+<!-- ══════════════════════════ COVER ══════════════════════════ -->
+<section class="cover">
+<svg class="cover-svg" viewBox="0 0 375 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#060d1a"/>
+      <stop offset="55%" stop-color="#0c1826"/>
+      <stop offset="100%" stop-color="#101e12"/>
+    </linearGradient>
+    <linearGradient id="moon-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8d8a0" stop-opacity=".9"/>
+      <stop offset="100%" stop-color="#c8b870" stop-opacity=".3"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#sky)" width="375" height="700"/>
+  <!-- Moon -->
+  <circle cx="300" cy="80" r="24" fill="url(#moon-glow)" opacity=".7"/>
+  <circle cx="312" cy="74" r="22" fill="#0c1826"/>
+  <!-- Stars -->
+  <circle cx="20" cy="30" r="1" fill="#fff" opacity=".8"/>
+  <circle cx="55" cy="18" r="1.2" fill="#fff" opacity=".7"/>
+  <circle cx="90" cy="45" r=".8" fill="#fff" opacity=".9"/>
+  <circle cx="130" cy="12" r="1" fill="#fff" opacity=".6"/>
+  <circle cx="168" cy="35" r="1.3" fill="#fff" opacity=".8"/>
+  <circle cx="210" cy="8" r=".9" fill="#fff" opacity=".7"/>
+  <circle cx="240" cy="50" r="1" fill="#fff" opacity=".9"/>
+  <circle cx="270" cy="20" r=".8" fill="#fff" opacity=".6"/>
+  <circle cx="340" cy="40" r="1.1" fill="#fff" opacity=".7"/>
+  <circle cx="360" cy="15" r=".9" fill="#fff" opacity=".8"/>
+  <circle cx="38" cy="70" r=".7" fill="#fff" opacity=".6"/>
+  <circle cx="110" cy="60" r="1" fill="#fff" opacity=".7"/>
+  <circle cx="185" cy="72" r=".8" fill="#fff" opacity=".5"/>
+  <circle cx="320" cy="65" r="1.2" fill="#fff" opacity=".8"/>
+  <circle cx="155" cy="90" r=".7" fill="#fff" opacity=".6"/>
+  <circle cx="75" cy="95" r="1" fill="#fff" opacity=".7"/>
+  <circle cx="225" cy="85" r=".9" fill="#fff" opacity=".8"/>
+  <!-- Far mountains -->
+  <path d="M0,400 L60,300 L110,340 L160,280 L220,320 L270,260 L320,300 L375,270 L375,700 L0,700Z"
+        fill="#18302a" opacity=".75"/>
+  <!-- Mid mountains -->
+  <path d="M0,460 L50,370 L100,410 L155,350 L210,395 L265,340 L310,375 L360,345 L375,360 L375,700 L0,700Z"
+        fill="#102218" opacity=".9"/>
+  <!-- Near mountains + treeline -->
+  <path d="M0,510 L40,440 L80,475 L120,420 L170,460 L215,415 L255,450 L300,425 L340,455 L375,435 L375,700 L0,700Z"
+        fill="#0a1810"/>
+  <!-- Tree silhouettes near -->
+  <path d="M10,510 L14,480 L18,510Z M22,510 L26,488 L30,510Z M340,460 L344,435 L348,460Z M355,455 L359,430 L363,455Z"
+        fill="#060e08"/>
+</svg>
+
+<div class="cover-body">
+  <div class="cover-eyebrow">旅のしおり · 2026</div>
+  <h1 class="cover-title">
+    <span class="cc" style="animation-delay:.55s">上</span><span class="cc" style="animation-delay:.63s">高</span><span class="cc" style="animation-delay:.71s">地</span><span class="cc em" style="animation-delay:.82s"> × </span><span class="cc" style="animation-delay:.93s">野</span><span class="cc" style="animation-delay:1.01s">尻</span><span class="cc" style="animation-delay:1.09s">湖</span>
+  </h1>
+  <div class="cover-date">Jul 10 – 12, 2026</div>
+  <div class="cover-members">Aki · Tetsupay · Makoto</div>
 </div>
 
-<!-- ════════════════════ DAY 0 ════════════════════ -->
-<div class="day-head">
-  <span class="day-num">Day 0</span>
-  <span class="day-title">前泊</span>
-  <span class="day-date">7/9 Thu</span>
+<div class="cover-hint">
+  <span class="cover-hint-txt">めくる</span>
+  <span class="cover-arrow">↓</span>
 </div>
-<div class="tl-wrap">
-  <div class="tl-item">
-    <div class="tl-time">夜</div>
-    <div class="tl-right">
-      <div class="tl-name">Makoto → 名古屋</div>
-      <div class="tl-desc">大阪発 · Tetsupay宅に前泊<br>翌朝07:00に一緒に出発</div>
-    </div>
-  </div>
+</section>
+
+<!-- ══════════════════════════ MAIN ══════════════════════════ -->
+<main class="page">
+
+<!-- ── DAY 0 ── -->
+<div class="divider anim">
+  <span class="divider-txt">Day 0</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,8 Q40,4 80,9 Q120,14 160,8 Q200,2 240,8 Q270,12 300,7"/></svg>
 </div>
-
-<!-- ════════════════════ DAY 1 ════════════════════ -->
-<div class="day-head">
-  <span class="day-num">Day 1</span>
-  <span class="day-title">上高地 · 嘉門次小屋</span>
-  <span class="day-date">7/10 Fri</span>
-</div>
-<div class="tl-wrap">
-
-  <div class="tl-item">
-    <div class="tl-time">07:00</div>
-    <div class="tl-right">
-      <div class="tl-name">Tetsupay · Makoto — 名古屋出発</div>
-      <div class="tl-box">
-        <div class="tl-box-main">名古屋 07:00 → 塩尻 08:57</div>
-        <div class="tl-box-sub">JR 特急しなの1号 · 指定席 ¥5,810/人</div>
-      </div>
-      <a href="https://yahoo.jp/tWs5jw" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex;">↗ 乗換案内</a>
-    </div>
+<div class="day-block anim-l">
+  <div class="day-heading">
+    <span class="day-num">Day <em>0</em></span>
+    <span class="day-name">前泊</span>
+    <span class="day-date">7/9 Thu</span>
   </div>
-
-  <div class="tl-item">
-    <div class="tl-time">早朝</div>
-    <div class="tl-right">
-      <div class="tl-name">Aki — 東京出発</div>
-      <div class="tl-desc">中央道で塩尻へ · 約2.5〜3時間</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">09:00<br>頃</div>
-    <div class="tl-right">
-      <div class="tl-name">塩尻 — 全員合流</div>
-      <div class="tl-desc">Akiの車に乗り換えて観光スポットへ。<br>距離・スケジュールの都合上、<strong>どちらか一方</strong>のみ訪問。</div>
-      <span class="stamp stamp-ok">当選 → 白州蒸留所</span>
-      <span class="stamp stamp-warn">外れ → 大王わさび農場</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">13:30<br>目標</div>
-    <div class="tl-right">
-      <div class="tl-name">沢渡 — 駐車 · シャトルバスへ</div>
-      <div class="tl-desc">マイカー規制エリア。沢渡第2駐車場に停車<br>
-        <span style="font-size:11px;color:var(--red);">逆算：BT着14:00 → 徒歩1時間 → 嘉門次15:00着</span></div>
-      <div class="tl-box">
-        <div class="tl-box-main">沢渡 14:00 → 上高地BT 14:30（約30分）</div>
-        <div class="tl-box-sub">往復 ¥2,800/人 · 駐車 ¥700/日</div>
-      </div>
-      <a href="https://www.kamikochi.or.jp/access/" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex;">↗ アクセス情報</a>
-      <a href="https://www.alpico.co.jp/traffic/local/kamikochi/sawando/" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex;">↗ シャトルバス</a>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">14:30<br>〜15:00</div>
-    <div class="tl-right">
-      <div class="tl-name">上高地BT → 嘉門次小屋 — 徒歩</div>
-      <div class="tl-desc">河童橋 · 明神池を眺めながら 3.5km · 約1時間<br>街灯なし · 16時以降は暗くなる</div>
-      <span class="stamp stamp-alert">⚠ 16:00着 厳守</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">15:30<br>目標</div>
-    <div class="tl-right">
-      <div class="tl-name">嘉門次小屋 — チェックイン</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">17:00</div>
-    <div class="tl-right">
-      <div class="tl-name">夕食 — 岩魚の塩焼き · 骨酒 ×2</div>
-      <span class="stamp stamp-alert">時間変更不可</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">21:00</div>
-    <div class="tl-right">
-      <div class="tl-name">消灯</div>
-      <div class="tl-desc">携帯電波は繋がりにくい</div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ════════════════════ DAY 2 ════════════════════ -->
-<div class="day-head">
-  <span class="day-num">Day 2</span>
-  <span class="day-title">上高地散策 → 野尻湖 · SUP</span>
-  <span class="day-date">7/11 Sat</span>
-</div>
-<div class="tl-wrap">
-
-  <div class="tl-item">
-    <div class="tl-time">06:45</div>
-    <div class="tl-right">
-      <div class="tl-name">朝食（嘉門次小屋）</div>
-      <span class="stamp stamp-alert">時間変更不可</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">08:00</div>
-    <div class="tl-right">
-      <div class="tl-name">チェックアウト · 嘉門次小屋 出発</div>
-      <div class="tl-desc">バスターミナルまで徒歩1時間（3.5km）<br>明神池 · 梓川沿いを眺めながら — 朝の上高地はこの旅のハイライト</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">09:00<br>頃</div>
-    <div class="tl-right">
-      <div class="tl-name">上高地BT着 · シャトルバスで沢渡へ</div>
-      <div class="tl-desc">上高地BT → 沢渡 · 約30分</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">09:30<br>頃</div>
-    <div class="tl-right">
-      <div class="tl-name">沢渡 · Akiの車で野尻湖へ移動</div>
-      <div class="tl-desc">沢渡 → 野尻湖 · 約1時間50分</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">12:30</div>
-    <div class="tl-right">
-      <div class="tl-name">SUP — LAMP野尻湖</div>
-      <div class="tl-box">
-        <div class="tl-box-main">12:30 〜 15:00 · 手ぶらSUPセット</div>
-        <div class="tl-box-sub">¥7,300/人 · 3名 ¥21,900 · ウェットスーツ込み</div>
-      </div>
-      <span class="stamp stamp-warn">要事前予約</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">15:00</div>
-    <div class="tl-right">
-      <div class="tl-name">Earthboat Nojiriko — チェックイン</div>
-      <div class="tl-desc">セルフチェックイン · QRコードで解錠</div>
-      <span class="stamp stamp-warn">スマートキー事前登録 必須</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">17:30</div>
-    <div class="tl-right">
-      <div class="tl-name">LAMPディナー</div>
-      <div class="tl-desc">17:30〜20:30 · LAMP本館（徒歩3分）</div>
-      <span class="stamp stamp-warn">当日12時までに要予約</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">夜</div>
-    <div class="tl-right">
-      <div class="tl-name">サウナ（LAMP野尻湖）</div>
-      <div class="tl-desc">野尻湖を見ながら</div>
-      <span class="stamp stamp-warn">要別途予約</span>
-    </div>
-  </div>
-
-</div>
-
-<!-- ════════════════════ DAY 3 ════════════════════ -->
-<div class="day-head">
-  <span class="day-num">Day 3</span>
-  <span class="day-title">帰路</span>
-  <span class="day-date">7/12 Sun</span>
-</div>
-<div class="tl-wrap">
-
-  <div class="tl-item">
-    <div class="tl-time">07:30</div>
-    <div class="tl-right">
-      <div class="tl-name">LAMP朝食</div>
-      <div class="tl-desc">7:30 / 8:00 / 8:30〜（時間選択制）</div>
-      <span class="stamp stamp-warn">前日12時までに要予約</span>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">11:00</div>
-    <div class="tl-right">
-      <div class="tl-name">Earthboat — チェックアウト</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">〜</div>
-    <div class="tl-right">
-      <div class="tl-name">長野駅へ移動</div>
-      <div class="tl-desc">野尻湖 → 長野駅 · 約40分</div>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-time">12:00</div>
-    <div class="tl-right">
-      <div class="tl-name">Tetsupay · Makoto — 長野出発</div>
-      <div class="tl-box">
-        <div class="tl-box-main">Tetsupay：長野 12:00 → 名古屋 15:01</div>
-        <div class="tl-box-sub">JR 特急しなの12号</div>
-      </div>
-      <div class="tl-box">
-        <div class="tl-box-main">Makoto：長野 12:00 → 名古屋 → 新大阪 16:00</div>
-        <div class="tl-box-sub">しなの12号 + のぞみ37号 · 計 ¥7,550</div>
-      </div>
-      <a href="https://yahoo.jp/mTn96K" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex;">↗ 乗換案内</a>
+  <svg class="day-uline" viewBox="0 0 490 10"><path class="day-uline-path" d="M0,6 Q80,2 160,7 Q240,12 320,5 Q390,0 490,6"/></svg>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">夜</div>
+      <div class="tl-right">
+        <div class="tl-name">Makoto → 名古屋</div>
+        <div class="tl-desc">大阪発 · Tetsupay宅に前泊<br>翌朝07:00に一緒に出発</div>
       </div>
     </div>
   </div>
-
-  <div class="tl-item">
-    <div class="tl-time">〜</div>
-    <div class="tl-right">
-      <div class="tl-name">Aki — 長野から東京へ</div>
-      <div class="tl-desc">上信越道・関越道 · 約3時間</div>
-    </div>
-  </div>
-
 </div>
 
-<!-- ════════════════════ 宿泊先 ════════════════════ -->
-<div class="sec-head">
-  <span class="sec-title">宿泊先</span>
-  <div class="sec-rule"></div>
+<!-- ── DAY 1 ── -->
+<div class="divider anim">
+  <span class="divider-txt">Day 1</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,8 Q50,3 100,9 Q150,15 200,7 Q245,1 300,8"/></svg>
+</div>
+<div class="day-block anim-l">
+  <div class="day-heading">
+    <span class="day-num">Day <em>1</em></span>
+    <span class="day-name">上高地 · 嘉門次小屋</span>
+    <span class="day-date">7/10 Fri</span>
+  </div>
+  <svg class="day-uline" viewBox="0 0 490 10"><path class="day-uline-path" d="M0,5 Q100,9 200,4 Q300,0 400,6 Q445,9 490,5"/></svg>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">07:00</div>
+      <div class="tl-right">
+        <div class="tl-name">Tetsupay · Makoto — 名古屋出発</div>
+        <div class="tl-box">
+          <div class="tl-box-main">名古屋 07:00 → 塩尻 08:57</div>
+          <div class="tl-box-sub">JR 特急しなの1号 · 指定席 ¥5,810/人</div>
+        </div>
+        <a href="https://yahoo.jp/tWs5jw" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex">↗ 乗換案内</a>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">早朝</div>
+      <div class="tl-right">
+        <div class="tl-name">Aki — 東京出発</div>
+        <div class="tl-desc">中央道で塩尻へ · 約2.5〜3時間</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">09:00頃</div>
+      <div class="tl-right">
+        <div class="tl-name">塩尻 — 全員合流</div>
+        <div class="tl-desc">Akiの車に乗り換えて観光スポットへ。<br>距離・スケジュールの都合上、<strong>どちらか一方</strong>のみ訪問。</div>
+        <span class="stamp stamp-ok">当選 → 白州蒸留所</span>
+        <span class="stamp stamp-warn">外れ → 大王わさび農場</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">13:30目標</div>
+      <div class="tl-right">
+        <div class="tl-name">沢渡 — 駐車 · シャトルバスへ</div>
+        <div class="tl-desc">マイカー規制エリア。沢渡第2駐車場に停車<br><span style="color:var(--red);font-size:11px">逆算：BT着14:00 → 徒歩1時間 → 嘉門次15:30着</span></div>
+        <div class="tl-box">
+          <div class="tl-box-main">沢渡 14:00 → 上高地BT 14:30（約30分）</div>
+          <div class="tl-box-sub">往復 ¥2,800/人 · 駐車 ¥700/日</div>
+        </div>
+        <a href="https://www.kamikochi.or.jp/access/" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex">↗ アクセス情報</a>
+        <a href="https://www.alpico.co.jp/traffic/local/kamikochi/sawando/" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex">↗ シャトルバス</a>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">14:30〜15:00</div>
+      <div class="tl-right">
+        <div class="tl-name">上高地BT → 嘉門次小屋 — 徒歩</div>
+        <div class="tl-desc">河童橋 · 明神池を眺めながら 3.5km · 約1時間<br>街灯なし · 16時以降は暗くなる</div>
+        <span class="stamp stamp-alert">⚠ 16:00着 厳守</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">15:30目標</div>
+      <div class="tl-right">
+        <div class="tl-name">嘉門次小屋 — チェックイン</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">17:00</div>
+      <div class="tl-right">
+        <div class="tl-name">夕食 — 岩魚の塩焼き · 骨酒 ×2</div>
+        <span class="stamp stamp-alert">時間変更不可</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">21:00</div>
+      <div class="tl-right">
+        <div class="tl-name">消灯</div>
+        <div class="tl-desc">携帯電波は繋がりにくい</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── DAY 2 ── -->
+<div class="divider anim">
+  <span class="divider-txt">Day 2</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,7 Q60,12 120,6 Q180,0 240,8 Q270,12 300,6"/></svg>
+</div>
+<div class="day-block anim-l">
+  <div class="day-heading">
+    <span class="day-num">Day <em>2</em></span>
+    <span class="day-name">上高地 → 野尻湖 · SUP</span>
+    <span class="day-date">7/11 Sat</span>
+  </div>
+  <svg class="day-uline" viewBox="0 0 490 10"><path class="day-uline-path" d="M0,7 Q120,3 240,8 Q350,13 490,5"/></svg>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">06:45</div>
+      <div class="tl-right">
+        <div class="tl-name">朝食（嘉門次小屋）</div>
+        <span class="stamp stamp-alert">時間変更不可</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">08:00</div>
+      <div class="tl-right">
+        <div class="tl-name">チェックアウト · 嘉門次小屋 出発</div>
+        <div class="tl-desc">バスターミナルまで徒歩1時間（3.5km）<br>明神池 · 梓川沿いを眺めながら — 朝の上高地はこの旅のハイライト</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">09:00頃</div>
+      <div class="tl-right">
+        <div class="tl-name">上高地BT着 · シャトルバスで沢渡へ</div>
+        <div class="tl-desc">上高地BT → 沢渡 · 約30分</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">09:30頃</div>
+      <div class="tl-right">
+        <div class="tl-name">沢渡 · Akiの車で野尻湖へ移動</div>
+        <div class="tl-desc">沢渡 → 野尻湖 · 約1時間50分</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">12:30</div>
+      <div class="tl-right">
+        <div class="tl-name">SUP — LAMP野尻湖</div>
+        <div class="tl-box">
+          <div class="tl-box-main">12:30 〜 15:00 · 手ぶらSUPセット</div>
+          <div class="tl-box-sub">¥7,300/人 · 3名 ¥21,900 · ウェットスーツ込み</div>
+        </div>
+        <span class="stamp stamp-warn">要事前予約</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">15:00</div>
+      <div class="tl-right">
+        <div class="tl-name">Earthboat Nojiriko — チェックイン</div>
+        <div class="tl-desc">セルフチェックイン · QRコードで解錠</div>
+        <span class="stamp stamp-warn">スマートキー事前登録 必須</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">17:30</div>
+      <div class="tl-right">
+        <div class="tl-name">LAMPディナー</div>
+        <div class="tl-desc">17:30〜20:30 · LAMP本館（徒歩3分）</div>
+        <span class="stamp stamp-warn">当日12時までに要予約</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">夜</div>
+      <div class="tl-right">
+        <div class="tl-name">サウナ（LAMP野尻湖）</div>
+        <div class="tl-desc">野尻湖を見ながら</div>
+        <span class="stamp stamp-warn">要別途予約</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── DAY 3 ── -->
+<div class="divider anim">
+  <span class="divider-txt">Day 3</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,9 Q75,4 150,9 Q220,14 300,7"/></svg>
+</div>
+<div class="day-block anim-l">
+  <div class="day-heading">
+    <span class="day-num">Day <em>3</em></span>
+    <span class="day-name">帰路</span>
+    <span class="day-date">7/12 Sun</span>
+  </div>
+  <svg class="day-uline" viewBox="0 0 490 10"><path class="day-uline-path" d="M0,5 Q100,10 200,5 Q310,0 490,7"/></svg>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">07:30</div>
+      <div class="tl-right">
+        <div class="tl-name">LAMP朝食</div>
+        <div class="tl-desc">7:30 / 8:00 / 8:30〜（時間選択制）</div>
+        <span class="stamp stamp-warn">前日12時までに要予約</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">11:00</div>
+      <div class="tl-right">
+        <div class="tl-name">Earthboat — チェックアウト</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">〜</div>
+      <div class="tl-right">
+        <div class="tl-name">長野駅へ移動</div>
+        <div class="tl-desc">野尻湖 → 長野駅 · 約40分</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">12:00</div>
+      <div class="tl-right">
+        <div class="tl-name">Tetsupay · Makoto — 長野出発</div>
+        <div class="tl-box">
+          <div class="tl-box-main">Tetsupay：長野 12:00 → 名古屋 15:01</div>
+          <div class="tl-box-sub">JR 特急しなの12号</div>
+        </div>
+        <div class="tl-box">
+          <div class="tl-box-main">Makoto：長野 12:00 → 名古屋 → 新大阪 16:00</div>
+          <div class="tl-box-sub">しなの12号 + のぞみ37号 · 計 ¥7,550</div>
+        </div>
+        <a href="https://yahoo.jp/mTn96K" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex">↗ 乗換案内</a>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">〜</div>
+      <div class="tl-right">
+        <div class="tl-name">Aki — 長野から東京へ</div>
+        <div class="tl-desc">上信越道・関越道 · 約3時間</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ 宿泊先 ══ -->
+<div class="divider anim">
+  <span class="divider-txt">宿泊先</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,8 Q60,3 120,9 Q190,15 260,7 Q280,4 300,8"/></svg>
 </div>
 <div class="sec-wrap">
-<div class="card-list">
 
-  <div class="card">
+  <div class="card anim">
     <div class="card-head">
       <div>
         <div class="card-name">嘉門次小屋</div>
@@ -738,50 +708,19 @@
       <a href="https://www.chillnn.com/ja/1889e09391031f" target="_blank" class="link-btn">↗ 予約</a>
     </div>
     <div class="card-body">
-      <div class="info-row">
-        <div class="info-key">予約番号</div>
-        <div class="info-val"><span class="code">f5••••••••</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">部屋</div>
-        <div class="info-val">霞（Kasumi）· 3名</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">Check-in</div>
-        <div class="info-val">14:00 〜 <span class="hl">16:00（厳守）</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">Check-out</div>
-        <div class="info-val">08:00</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">食事</div>
-        <div class="info-val">夕食 <span class="hl">17:00</span> / 朝食 <span class="hl">06:45</span>（変更不可）</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">オプション</div>
-        <div class="info-val">岩魚の骨酒 ×2</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">料金</div>
-        <div class="info-val"><span class="hl">¥34,600</span>（3名・税込）</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">連絡先</div>
-        <div class="info-val">0263-95-2418<br><span style="font-size:11px;color:var(--ink-muted)">yoyaku@kamonjigoya.jp</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">注意</div>
-        <div class="info-val" style="font-size:12px;color:var(--ink-muted)">
-          現金のみ · ATMなし · 21時消灯<br>
-          アメニティ持参（タオル・歯ブラシ等）<br>
-          バスターミナルから徒歩1時間 · 街灯なし
-        </div>
-      </div>
+      <div class="info-row"><div class="info-key">予約番号</div><div class="info-val"><span class="code">f5••••••••</span></div></div>
+      <div class="info-row"><div class="info-key">部屋</div><div class="info-val">霞（Kasumi）· 3名</div></div>
+      <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">14:00 〜 <span class="hl">16:00（厳守）</span></div></div>
+      <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">08:00</div></div>
+      <div class="info-row"><div class="info-key">食事</div><div class="info-val">夕食 <span class="hl">17:00</span> / 朝食 <span class="hl">06:45</span>（変更不可）</div></div>
+      <div class="info-row"><div class="info-key">オプション</div><div class="info-val">岩魚の骨酒 ×2</div></div>
+      <div class="info-row"><div class="info-key">料金</div><div class="info-val"><span class="hl">¥34,600</span>（3名・税込）</div></div>
+      <div class="info-row"><div class="info-key">連絡先</div><div class="info-val">0263-95-2418<br><span style="font-size:11px;color:var(--muted)">yoyaku@kamonjigoya.jp</span></div></div>
+      <div class="info-row"><div class="info-key">注意</div><div class="info-val" style="font-size:12px;color:var(--muted)">現金のみ · ATMなし · 21時消灯<br>アメニティ持参 · バスターミナルから徒歩1時間 · 街灯なし</div></div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card anim">
     <div class="card-head">
       <div>
         <div class="card-name">Earthboat Nojiriko</div>
@@ -789,38 +728,14 @@
       </div>
     </div>
     <div class="card-body">
-      <div class="info-row">
-        <div class="info-key">予約番号</div>
-        <div class="info-val"><span class="code">22••••••••</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">Check-in</div>
-        <div class="info-val">15:00〜（セルフ · QRコード解錠）<br><span style="font-size:11px;color:var(--ink-muted)">事前スマートキー登録が必要</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">Check-out</div>
-        <div class="info-val">11:00</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">料金</div>
-        <div class="info-val"><span class="hl">¥89,200</span>（税込）</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">設備</div>
-        <div class="info-val" style="font-size:12px;">クイーンベッド · IHキッチン · シャワー<br>コーヒーメーカー · ドライヤー · エアコン</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">アメニティ</div>
-        <div class="info-val" style="font-size:12px;color:var(--forest);font-weight:600;">歯ブラシ · タオル · バスタオル · サウナポンチョ完備<br><span style="color:var(--ink-muted);font-weight:400;">持参不要</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">ウェルカム</div>
-        <div class="info-val" style="font-size:12px;">水 · リンゴジュース</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">連絡先</div>
-        <div class="info-val" style="font-size:12px;">026-258-2978（8〜20時）<br>090-9556-6624（20時以降）</div>
-      </div>
+      <div class="info-row"><div class="info-key">予約番号</div><div class="info-val"><span class="code">22••••••••</span></div></div>
+      <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">15:00〜（セルフ · QRコード解錠）<br><span style="font-size:11px;color:var(--muted)">事前スマートキー登録が必要</span></div></div>
+      <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">11:00</div></div>
+      <div class="info-row"><div class="info-key">料金</div><div class="info-val"><span class="hl">¥89,200</span>（税込）</div></div>
+      <div class="info-row"><div class="info-key">設備</div><div class="info-val" style="font-size:12px">クイーンベッド · IHキッチン · シャワー<br>コーヒーメーカー · ドライヤー · エアコン</div></div>
+      <div class="info-row"><div class="info-key">アメニティ</div><div class="info-val" style="font-size:12px;color:var(--green);font-weight:600">歯ブラシ · タオル · バスタオル · サウナポンチョ完備<br><span style="color:var(--muted);font-weight:400">持参不要</span></div></div>
+      <div class="info-row"><div class="info-key">ウェルカム</div><div class="info-val" style="font-size:12px">水 · リンゴジュース</div></div>
+      <div class="info-row"><div class="info-key">連絡先</div><div class="info-val" style="font-size:12px">026-258-2978（8〜20時）<br>090-9556-6624（20時以降）</div></div>
     </div>
     <div class="card-links">
       <a href="https://lampinc.co.jp/nojiriko/" target="_blank" class="link-btn">↗ LAMP野尻湖</a>
@@ -830,44 +745,42 @@
   </div>
 
 </div>
-</div>
 
-<!-- ════════════════════ アクティビティ ════════════════════ -->
-<div class="sec-head">
-  <span class="sec-title">アクティビティ</span>
-  <div class="sec-rule"></div>
+<!-- ══ アクティビティ ══ -->
+<div class="divider anim">
+  <span class="divider-txt">アクティビティ</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,6 Q80,11 160,6 Q230,1 300,8"/></svg>
 </div>
 <div class="sec-wrap">
-<div class="card-list">
 
-  <div class="card">
+  <div class="card anim">
     <div class="card-head">
       <div>
-        <div class="card-name">Day 1 観光スポット（抽選で決定）</div>
-        <div class="card-loc">移動距離・上高地16時制限の都合上、どちらか一方のみ訪問可能</div>
+        <div class="card-name">Day 1 観光スポット（抽選）</div>
+        <div class="card-loc">移動距離・16時制限の都合上、どちらか一方のみ</div>
       </div>
     </div>
     <div class="card-body">
       <div class="info-row">
-        <div class="info-key" style="color:var(--forest);">当選</div>
+        <div class="info-key" style="color:var(--green)">当選</div>
         <div class="info-val">
           <strong>白州蒸留所（サントリー）</strong><br>
-          <span style="font-size:12px;color:var(--ink-muted);">山梨県北杜市白州町 · ウイスキー工場見学<br>所要時間 約2〜3時間 · 要事前予約</span><br>
-          <a href="https://www.suntory.co.jp/factory/hakushu/" target="_blank" class="link-btn" style="margin-top:8px;display:inline-flex;">↗ 白州蒸留所</a>
+          <span style="font-size:12px;color:var(--muted)">山梨県北杜市白州町 · 工場見学 約2〜3時間 · 要事前予約</span><br>
+          <a href="https://www.suntory.co.jp/factory/hakushu/" target="_blank" class="link-btn" style="margin-top:8px;display:inline-flex">↗ 白州蒸留所</a>
         </div>
       </div>
       <div class="info-row">
         <div class="info-key">外れ</div>
         <div class="info-val">
           <strong>大王わさび農場</strong><br>
-          <span style="font-size:12px;color:var(--ink-muted);">長野県安曇野市穂高 · 日本最大のわさび農場<br>所要時間 約1〜2時間 · 入場無料</span><br>
-          <a href="https://www.daiowasabi.co.jp/" target="_blank" class="link-btn" style="margin-top:8px;display:inline-flex;">↗ 大王わさび農場</a>
+          <span style="font-size:12px;color:var(--muted)">長野県安曇野市穂高 · 日本最大 約1〜2時間 · 入場無料</span><br>
+          <a href="https://www.daiowasabi.co.jp/" target="_blank" class="link-btn" style="margin-top:8px;display:inline-flex">↗ 大王わさび農場</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card anim">
     <div class="card-head">
       <div>
         <div class="card-name">SUP（野尻湖）</div>
@@ -876,358 +789,179 @@
       <a href="https://lampinc.co.jp/nojiriko/" target="_blank" class="link-btn">↗ LAMP</a>
     </div>
     <div class="card-body">
-      <div class="info-row">
-        <div class="info-key">プラン</div>
-        <div class="info-val">手ぶらSUPセット · 3時間</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">料金</div>
-        <div class="info-val"><span class="hl">¥7,300/人 · 3名 ¥21,900</span></div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">含む</div>
-        <div class="info-val" style="font-size:12px;">SUPボード · パドル · ウェットスーツ · ライフジャケット · インストラクター</div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">注意</div>
-        <div class="info-val" style="font-size:12px;color:var(--ink-muted);">要事前予約 · 前日キャンセル不可</div>
-      </div>
+      <div class="info-row"><div class="info-key">プラン</div><div class="info-val">手ぶらSUPセット · 3時間</div></div>
+      <div class="info-row"><div class="info-key">料金</div><div class="info-val"><span class="hl">¥7,300/人 · 3名 ¥21,900</span></div></div>
+      <div class="info-row"><div class="info-key">含む</div><div class="info-val" style="font-size:12px">SUPボード · パドル · ウェットスーツ · ライフジャケット · インストラクター</div></div>
+      <div class="info-row"><div class="info-key">注意</div><div class="info-val" style="font-size:12px;color:var(--muted)">要事前予約 · 前日キャンセル不可</div></div>
     </div>
   </div>
 
 </div>
-</div>
 
-<!-- ════════════════════ アメニティ比較 ════════════════════ -->
-<div class="sec-head">
-  <span class="sec-title">アメニティ比較</span>
-  <div class="sec-rule"></div>
+<!-- ══ アメニティ比較 ══ -->
+<div class="divider anim">
+  <span class="divider-txt">アメニティ比較</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,9 Q90,4 180,9 Q240,13 300,7"/></svg>
 </div>
 <div class="sec-wrap">
-<div class="amenity-wrap">
-  <table class="amenity-table">
-    <tr>
-      <th>アイテム</th>
-      <th>嘉門次小屋</th>
-      <th>Earthboat</th>
-    </tr>
-    <tr>
-      <td>タオル</td>
-      <td class="ag-need">要持参</td>
-      <td class="ag-ok">完備</td>
-    </tr>
-    <tr>
-      <td>バスタオル</td>
-      <td class="ag-need">要持参</td>
-      <td class="ag-ok">完備</td>
-    </tr>
-    <tr>
-      <td>歯ブラシ</td>
-      <td class="ag-need">要持参</td>
-      <td class="ag-ok">完備</td>
-    </tr>
-    <tr>
-      <td>シャンプー等</td>
-      <td class="ag-need">要持参</td>
-      <td class="ag-ok">完備</td>
-    </tr>
-    <tr>
-      <td>サウナポンチョ</td>
-      <td class="ag-no">—</td>
-      <td class="ag-ok">完備</td>
-    </tr>
-    <tr>
-      <td>寝具</td>
-      <td class="ag-ok">完備</td>
-      <td class="ag-ok">完備</td>
-    </tr>
-  </table>
-</div>
+  <div class="anim">
+    <table class="amenity-table">
+      <tr><th>アイテム</th><th>嘉門次小屋</th><th>Earthboat</th></tr>
+      <tr><td>タオル</td><td class="ag-need">要持参</td><td class="ag-ok">完備</td></tr>
+      <tr><td>バスタオル</td><td class="ag-need">要持参</td><td class="ag-ok">完備</td></tr>
+      <tr><td>歯ブラシ</td><td class="ag-need">要持参</td><td class="ag-ok">完備</td></tr>
+      <tr><td>シャンプー等</td><td class="ag-need">要持参</td><td class="ag-ok">完備</td></tr>
+      <tr><td>サウナポンチョ</td><td class="ag-no">—</td><td class="ag-ok">完備</td></tr>
+      <tr><td>寝具</td><td class="ag-ok">完備</td><td class="ag-ok">完備</td></tr>
+    </table>
+  </div>
 </div>
 
-<!-- ════════════════════ 費用 ════════════════════ -->
-<div class="sec-head">
-  <span class="sec-title">費用まとめ</span>
-  <div class="sec-rule"></div>
+<!-- ══ 費用 ══ -->
+<div class="divider anim">
+  <span class="divider-txt">費用まとめ</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,7 Q70,12 140,6 Q210,0 300,8"/></svg>
 </div>
 <div class="sec-wrap">
-<div class="cost-wrap">
-  <table class="cost-table">
+  <div class="anim">
+    <table class="cost-table">
+      <tr class="cost-sec"><th colspan="2">宿泊費</th></tr>
+      <tr><td class="cost-key">嘉門次小屋（3名 · 税込）</td><td class="cost-val">¥34,600</td></tr>
+      <tr><td class="cost-key">Earthboat Nojiriko（税込）</td><td class="cost-val">¥89,200</td></tr>
+      <tr class="cost-sub"><td class="cost-key">小計</td><td class="cost-val">¥123,800</td></tr>
 
-    <!-- 宿泊費 -->
-    <tr class="cost-sec"><th colspan="2">宿泊費</th></tr>
-    <tr>
-      <td class="cost-key">嘉門次小屋（3名 · 税込）</td>
-      <td class="cost-val">¥34,600</td>
-    </tr>
-    <tr>
-      <td class="cost-key">Earthboat Nojiriko（税込）</td>
-      <td class="cost-val">¥89,200</td>
-    </tr>
-    <tr class="cost-sub">
-      <td class="cost-key">小計</td>
-      <td class="cost-val">¥123,800</td>
-    </tr>
+      <tr class="cost-sec"><th colspan="2">飲食費 <span class="cost-est">推定</span></th></tr>
+      <tr><td class="cost-key">LAMPディナー（3名）<br><span class="cost-note-small">¥4,000/人目安</span></td><td class="cost-val">¥12,000<span class="cost-est">推定</span></td></tr>
+      <tr><td class="cost-key">LAMP朝食（3名）<br><span class="cost-note-small">¥1,700/人目安</span></td><td class="cost-val">¥5,100<span class="cost-est">推定</span></td></tr>
+      <tr class="cost-sub"><td class="cost-key">小計</td><td class="cost-val">¥17,100<span class="cost-est">推定</span></td></tr>
 
-    <!-- 飲食費 -->
-    <tr class="cost-sec"><th colspan="2">飲食費 <span class="cost-est">推定</span></th></tr>
-    <tr>
-      <td class="cost-key">LAMPディナー（3名）<br><span class="cost-note-small">¥4,000/人目安</span></td>
-      <td class="cost-val">¥12,000<span class="cost-est">推定</span></td>
-    </tr>
-    <tr>
-      <td class="cost-key">LAMP朝食（3名）<br><span class="cost-note-small">¥1,700/人目安</span></td>
-      <td class="cost-val">¥5,100<span class="cost-est">推定</span></td>
-    </tr>
-    <tr class="cost-sub">
-      <td class="cost-key">小計</td>
-      <td class="cost-val">¥17,100<span class="cost-est">推定</span></td>
-    </tr>
+      <tr class="cost-sec"><th colspan="2">交通費 <span class="cost-est">一部推定</span></th></tr>
+      <tr><td class="cost-key">シャトルバス往復（3名）<br><span class="cost-note-small">¥2,800/人 × 3名</span></td><td class="cost-val">¥8,400</td></tr>
+      <tr><td class="cost-key">沢渡駐車場（2泊）<br><span class="cost-note-small">¥700 × 2日</span></td><td class="cost-val">¥1,400</td></tr>
+      <tr><td class="cost-key">車 高速代（グループ分 ÷3）<br><span class="cost-note-small">松本IC〜信濃町IC 長野道</span></td><td class="cost-val">¥2,000<span class="cost-est">推定</span></td></tr>
+      <tr><td class="cost-key">車 ガソリン代（グループ分 ÷3）<br><span class="cost-note-small">塩尻→[観光]→沢渡→野尻湖→長野 約275km</span></td><td class="cost-val">¥4,000<span class="cost-est">推定</span></td></tr>
+      <tr class="cost-sub"><td class="cost-key">小計</td><td class="cost-val">¥15,800<span class="cost-est">推定</span></td></tr>
 
-    <!-- 交通費 -->
-    <tr class="cost-sec"><th colspan="2">交通費 <span class="cost-est">一部推定</span></th></tr>
-    <tr>
-      <td class="cost-key">シャトルバス往復（3名）<br><span class="cost-note-small">¥2,800/人 × 3名</span></td>
-      <td class="cost-val">¥8,400</td>
-    </tr>
-    <tr>
-      <td class="cost-key">沢渡駐車場（2泊）<br><span class="cost-note-small">¥700 × 2日</span></td>
-      <td class="cost-val">¥1,400</td>
-    </tr>
-    <tr>
-      <td class="cost-key">車 高速代（グループ分 ÷3）<br><span class="cost-note-small">松本IC〜信濃町IC 長野道 推定</span></td>
-      <td class="cost-val">¥2,000<span class="cost-est">推定</span></td>
-    </tr>
-    <tr>
-      <td class="cost-key">車 ガソリン代（グループ分 ÷3）<br><span class="cost-note-small">塩尻→[観光]→沢渡→野尻湖→長野 約275km</span></td>
-      <td class="cost-val">¥4,000<span class="cost-est">推定</span></td>
-    </tr>
-    <tr class="cost-sub">
-      <td class="cost-key">小計</td>
-      <td class="cost-val">¥15,800<span class="cost-est">推定</span></td>
-    </tr>
+      <tr class="cost-sec"><th colspan="2">アクティビティ</th></tr>
+      <tr><td class="cost-key">SUP（3名 · 手ぶらセット）</td><td class="cost-val">¥21,900</td></tr>
+      <tr class="cost-sub"><td class="cost-key">小計</td><td class="cost-val">¥21,900</td></tr>
 
-    <!-- アクティビティ -->
-    <tr class="cost-sec"><th colspan="2">アクティビティ</th></tr>
-    <tr>
-      <td class="cost-key">SUP（3名 · 手ぶらセット）</td>
-      <td class="cost-val">¥21,900</td>
-    </tr>
-    <tr class="cost-sub">
-      <td class="cost-key">小計</td>
-      <td class="cost-val">¥21,900</td>
-    </tr>
+      <tr class="cost-total"><td>合計</td><td class="cost-val">¥178,600</td></tr>
+      <tr class="cost-total"><td>1人あたり <span class="cost-est">推定</span></td><td class="cost-val">¥59,533</td></tr>
 
-    <!-- 合計 -->
-    <tr class="cost-total">
-      <td>合計</td>
-      <td class="cost-val">¥178,600</td>
-    </tr>
-    <tr class="cost-total">
-      <td>1人あたり <span class="cost-est">推定</span></td>
-      <td class="cost-val">¥59,533</td>
-    </tr>
-
-    <!-- 電車代（参考） -->
-    <tr class="cost-ref-head"><th colspan="2">電車代（参考 · 個人別・別途精算）</th></tr>
-    <tr class="cost-ref">
-      <td class="cost-key">Tetsupay 往路<br><span class="cost-note-small">名古屋→塩尻 しなの1号</span></td>
-      <td class="cost-val">¥5,810</td>
-    </tr>
-    <tr class="cost-ref">
-      <td class="cost-key">Tetsupay 復路<br><span class="cost-note-small">長野→名古屋 しなの12号</span></td>
-      <td class="cost-val">¥6,160<span class="cost-est">推定</span></td>
-    </tr>
-    <tr class="cost-ref">
-      <td class="cost-key">Makoto 往路<br><span class="cost-note-small">名古屋→塩尻 しなの1号</span></td>
-      <td class="cost-val">¥5,810</td>
-    </tr>
-    <tr class="cost-ref">
-      <td class="cost-key">Makoto 前泊 往路<br><span class="cost-note-small">大阪→名古屋（前日）</span></td>
-      <td class="cost-val">未確定</td>
-    </tr>
-    <tr class="cost-ref">
-      <td class="cost-key">Makoto 復路<br><span class="cost-note-small">長野→新大阪 しなの12号+のぞみ37号</span></td>
-      <td class="cost-val">¥7,550</td>
-    </tr>
-
-  </table>
-  <div class="cost-footnote">
-    ※ 白州蒸留所 入場料・飲食費は含まず<br>
-    ※ サウナ予約代は含まず<br>
-    ※ 車代（高速・ガソリン）は塩尻合流〜長野解散の区間を3名割り勘<br>
-    ※ Aki個人分（東京↔塩尻/長野）は別途
+      <tr class="cost-ref-head"><th colspan="2">電車代（参考 · 個人別 · 別途精算）</th></tr>
+      <tr class="cost-ref"><td class="cost-key">Tetsupay 往路<br><span class="cost-note-small">名古屋→塩尻 しなの1号</span></td><td class="cost-val">¥5,810</td></tr>
+      <tr class="cost-ref"><td class="cost-key">Tetsupay 復路<br><span class="cost-note-small">長野→名古屋 しなの12号</span></td><td class="cost-val">¥6,160<span class="cost-est">推定</span></td></tr>
+      <tr class="cost-ref"><td class="cost-key">Makoto 往路<br><span class="cost-note-small">名古屋→塩尻 しなの1号</span></td><td class="cost-val">¥5,810</td></tr>
+      <tr class="cost-ref"><td class="cost-key">Makoto 前泊往路<br><span class="cost-note-small">大阪→名古屋（前日）</span></td><td class="cost-val">未確定</td></tr>
+      <tr class="cost-ref"><td class="cost-key">Makoto 復路<br><span class="cost-note-small">長野→新大阪 しなの12号+のぞみ37号</span></td><td class="cost-val">¥7,550</td></tr>
+    </table>
+    <div class="cost-footnote">
+      ※ 白州蒸留所入場料・飲食費は含まず<br>
+      ※ 車代（高速・ガソリン）は塩尻〜長野区間を3名割り勘。Aki個人分（東京↔塩尻/長野）は別途<br>
+      ※ サウナ予約代は含まず
+    </div>
   </div>
 </div>
-</div>
 
-<!-- ════════════════════ 重要メモ ════════════════════ -->
-<div class="sec-head">
-  <span class="sec-title">重要メモ</span>
-  <div class="sec-rule"></div>
+<!-- ══ 重要メモ ══ -->
+<div class="divider anim">
+  <span class="divider-txt">重要メモ</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,8 Q80,3 160,9 Q230,14 300,7"/></svg>
 </div>
 <div class="sec-wrap">
-<div class="notes-list">
-
-  <div class="note note-red">
-    <div class="note-icon">💴</div>
-    <div class="note-body">
-      <div class="note-title">現金必須</div>
-      <div class="note-text">上高地エリアはATMなし。嘉門次小屋は現金のみ。松本・塩尻で多めに引き出すこと。</div>
-    </div>
-  </div>
-
-  <div class="note note-red">
-    <div class="note-icon">🎒</div>
-    <div class="note-body">
-      <div class="note-title">スーツケース厳禁</div>
-      <div class="note-text">未舗装路を3.5km · 1時間歩く。全員リュックサック必須。</div>
-    </div>
-  </div>
-
-  <div class="note note-red">
-    <div class="note-icon">🏔</div>
-    <div class="note-body">
-      <div class="note-title">16:00着 厳守</div>
-      <div class="note-text">嘉門次小屋のチェックイン上限は16:00。バスターミナルには15:00着が必要。逆算してスケジュールを管理。</div>
-    </div>
-  </div>
-
-  <div class="note">
-    <div class="note-icon">🔑</div>
-    <div class="note-body">
-      <div class="note-title">Earthboat スマートキー登録</div>
-      <div class="note-text">チェックイン前にQRコード登録が必要。予約確認メールを事前に確認して登録しておくこと。</div>
-    </div>
-  </div>
-
-  <div class="note">
-    <div class="note-icon">🍶</div>
-    <div class="note-body">
-      <div class="note-title">LAMPの食事・サウナは要予約</div>
-      <div class="note-text">
-        ディナー：当日 12:00 までに予約<br>
-        朝食：前日 12:00 までに予約（7:30 / 8:00 / 8:30〜）<br>
-        サウナ：別途要予約
-      </div>
-    </div>
-  </div>
-
-  <div class="note">
-    <div class="note-icon">🎯</div>
-    <div class="note-body">
-      <div class="note-title">白州蒸留所 抽選（5/8〜）</div>
-      <div class="note-text">当選 → 白州蒸留所 / 外れ → 大王わさび農場。結果が出たらグループLINEで共有。</div>
-    </div>
-  </div>
-
-</div>
+  <div class="note note-red anim"><div class="note-icon">💴</div><div><div class="note-title">現金必須</div><div class="note-text">上高地エリアはATMなし。嘉門次小屋は現金のみ。松本・塩尻で多めに引き出すこと。</div></div></div>
+  <div class="note note-red anim"><div class="note-icon">🎒</div><div><div class="note-title">スーツケース厳禁</div><div class="note-text">未舗装路を3.5km · 1時間歩く。全員リュックサック必須。</div></div></div>
+  <div class="note note-red anim"><div class="note-icon">🏔</div><div><div class="note-title">16:00着 厳守</div><div class="note-text">嘉門次小屋のチェックイン上限は16:00。バスターミナルには14:30着が必要。逆算してスケジュールを管理。</div></div></div>
+  <div class="note anim"><div class="note-icon">🔑</div><div><div class="note-title">Earthboat スマートキー登録</div><div class="note-text">チェックイン前にQRコード登録が必要。予約確認メールを事前に確認して登録しておくこと。</div></div></div>
+  <div class="note anim"><div class="note-icon">🍶</div><div><div class="note-title">LAMPの食事・サウナは要予約</div><div class="note-text">ディナー：当日12時まで / 朝食：前日12時まで（7:30 / 8:00 / 8:30〜）/ サウナ：別途要予約</div></div></div>
+  <div class="note anim"><div class="note-icon">🎯</div><div><div class="note-title">白州蒸留所 抽選（5/8〜）</div><div class="note-text">当選 → 白州蒸留所 / 外れ → 大王わさび農場。結果が出たらグループLINEで共有。</div></div></div>
 </div>
 
-<!-- ════════════════════ 持ち物チェック ════════════════════ -->
-<div class="sec-head">
-  <span class="sec-title">持ち物チェック</span>
-  <div class="sec-rule"></div>
+<!-- ══ 持ち物チェック ══ -->
+<div class="divider anim">
+  <span class="divider-txt">持ち物チェック</span>
+  <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,7 Q60,12 120,6 Q200,0 300,8"/></svg>
 </div>
 <div class="sec-wrap">
-<div class="check-wrap">
+  <div class="anim">
+    <div class="chk-group-lbl">必携（嘉門次小屋ルール）</div>
+    <div class="check-item" onclick="toggle(this)" data-key="cash"><div class="check-box"></div><div class="check-text">現金（多めに）<span class="check-note">上高地はATMなし · 嘉門次は現金のみ</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="rucksack"><div class="check-box"></div><div class="check-text">リュックサック<span class="check-note">スーツケース · キャリーバッグ不可</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="shoes"><div class="check-box"></div><div class="check-text">トレッキングシューズ<span class="check-note">未舗装路3.5km · ぬかるみあり</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="rain"><div class="check-box"></div><div class="check-text">レインウェア<span class="check-note">山の天気は変わりやすい</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="towel"><div class="check-box"></div><div class="check-text">タオル（嘉門次用）<span class="check-note">Earthboatは完備</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="btowel"><div class="check-box"></div><div class="check-text">バスタオル（嘉門次用）<span class="check-note">Earthboatは完備</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="toothbrush"><div class="check-box"></div><div class="check-text">歯ブラシ · 歯磨き粉（嘉門次用）<span class="check-note">Earthboatは完備</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="clothes"><div class="check-box"></div><div class="check-text">部屋着 · 着替え</div></div>
 
-  <div class="check-group-label">必携（嘉門次小屋ルール）</div>
+    <div class="chk-group-lbl">アウトドア</div>
+    <div class="check-item" onclick="toggle(this)" data-key="bug"><div class="check-box"></div><div class="check-text">虫除けスプレー<span class="check-note">上高地は虫が多い</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="sun"><div class="check-box"></div><div class="check-text">日焼け止め</div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="light"><div class="check-box"></div><div class="check-text">ヘッドライト / 懐中電灯<span class="check-note">嘉門次小屋へのルートは街灯なし</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="water"><div class="check-box"></div><div class="check-text">水筒 · 飲料水</div></div>
 
-  <div class="check-item" onclick="toggle(this)" data-key="cash">
-    <div class="check-box"></div>
-    <div class="check-text">現金（多めに）<span class="check-note">上高地はATMなし · 嘉門次は現金のみ</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="rucksack">
-    <div class="check-box"></div>
-    <div class="check-text">リュックサック<span class="check-note">スーツケース · キャリーバッグ不可</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="shoes">
-    <div class="check-box"></div>
-    <div class="check-text">トレッキングシューズ<span class="check-note">未舗装路3.5km · ぬかるみあり</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="rain">
-    <div class="check-box"></div>
-    <div class="check-text">レインウェア<span class="check-note">山の天気は変わりやすい</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="towel">
-    <div class="check-box"></div>
-    <div class="check-text">タオル（嘉門次用）<span class="check-note">Earthboatは完備なので2日目以降は不要</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="btowel">
-    <div class="check-box"></div>
-    <div class="check-text">バスタオル（嘉門次用）<span class="check-note">Earthboatは完備</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="toothbrush">
-    <div class="check-box"></div>
-    <div class="check-text">歯ブラシ · 歯磨き粉（嘉門次用）<span class="check-note">Earthboatは完備</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="clothes">
-    <div class="check-box"></div>
-    <div class="check-text">部屋着 · 着替え</div>
-  </div>
-
-  <div class="check-group-label">アウトドア</div>
-
-  <div class="check-item" onclick="toggle(this)" data-key="bug">
-    <div class="check-box"></div>
-    <div class="check-text">虫除けスプレー<span class="check-note">上高地は虫が多い</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="sunscreen">
-    <div class="check-box"></div>
-    <div class="check-text">日焼け止め</div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="light">
-    <div class="check-box"></div>
-    <div class="check-text">ヘッドライト / 懐中電灯<span class="check-note">嘉門次小屋へのルートは街灯なし</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="water">
-    <div class="check-box"></div>
-    <div class="check-text">水筒 · 飲料水</div>
-  </div>
-
-  <div class="check-group-label">事前確認</div>
-
-  <div class="check-item" onclick="toggle(this)" data-key="ticket">
-    <div class="check-box"></div>
-    <div class="check-text">特急列車の予約確認<span class="check-note">T+M: しなの1号 / しなの12号</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="smartkey">
-    <div class="check-box"></div>
-    <div class="check-text">Earthboat スマートキー事前登録<span class="check-note">QRコードをメールで確認</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="lamp-book">
-    <div class="check-box"></div>
-    <div class="check-text">LAMPの食事 · サウナ予約<span class="check-note">ディナー当日12時 / 朝食前日12時締切</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="sup-book">
-    <div class="check-box"></div>
-    <div class="check-text">SUP予約確認<span class="check-note">LAMP野尻湖 12:30〜15:00</span></div>
-  </div>
-  <div class="check-item" onclick="toggle(this)" data-key="hakushu">
-    <div class="check-box"></div>
-    <div class="check-text">白州蒸留所 抽選結果確認<span class="check-note">5/8〜受付開始</span></div>
-  </div>
-
-</div>
-</div>
-
-<!-- ════════════════════ FOOTER ════════════════════ -->
-<div class="footer">
-  <div class="footer-rule">
-    <span class="footer-text">2026.07.10 – 12 &nbsp;·&nbsp; AKI · TETSUPAY · MAKOTO</span>
+    <div class="chk-group-lbl">事前確認</div>
+    <div class="check-item" onclick="toggle(this)" data-key="ticket"><div class="check-box"></div><div class="check-text">特急列車の予約確認<span class="check-note">T+M: しなの1号 / しなの12号</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="smartkey"><div class="check-box"></div><div class="check-text">Earthboat スマートキー事前登録<span class="check-note">QRコードをメールで確認</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="lamp"><div class="check-box"></div><div class="check-text">LAMPの食事 · サウナ予約<span class="check-note">ディナー当日12時 / 朝食前日12時締切</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="sup"><div class="check-box"></div><div class="check-text">SUP予約確認<span class="check-note">LAMP野尻湖 12:30〜15:00</span></div></div>
+    <div class="check-item" onclick="toggle(this)" data-key="hakushu"><div class="check-box"></div><div class="check-text">白州蒸留所 抽選結果確認<span class="check-note">5/8〜受付開始</span></div></div>
   </div>
 </div>
 
-</div>
+</main>
+
+<footer class="footer">
+  <div class="footer-text">2026.07.10 – 12 &nbsp;·&nbsp; Aki · Tetsupay · Makoto</div>
+</footer>
+
 <script>
-  function toggle(el) {
-    el.classList.toggle('checked');
-    try { localStorage.setItem('chk_' + el.dataset.key, el.classList.contains('checked') ? '1' : '0'); } catch(e) {}
-  }
-  document.querySelectorAll('.check-item[data-key]').forEach(el => {
-    try { if (localStorage.getItem('chk_' + el.dataset.key) === '1') el.classList.add('checked'); } catch(e) {}
+// Checklist
+function toggle(el){
+  el.classList.toggle('checked');
+  try{localStorage.setItem('chk_'+el.dataset.key,el.classList.contains('checked')?'1':'0')}catch(e){}
+}
+document.querySelectorAll('.check-item[data-key]').forEach(el=>{
+  try{if(localStorage.getItem('chk_'+el.dataset.key)==='1')el.classList.add('checked')}catch(e){}
+});
+
+// Scroll animations
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    const el = entry.target;
+    el.classList.add('in');
+
+    // Stagger timeline items
+    if(el.classList.contains('day-block')){
+      el.querySelectorAll('.tl-item').forEach((item,i)=>{
+        item.style.transitionDelay = (i*0.07)+'s';
+        setTimeout(()=>item.classList.add('in'), i*70);
+      });
+      el.querySelectorAll('.stamp').forEach((s,i)=>{
+        setTimeout(()=>s.classList.add('in'), 300+i*60);
+      });
+    }
+
+    // Stagger cards inside sec-wrap
+    if(el.classList.contains('anim') && el.closest('.sec-wrap')){
+      // handled individually
+    }
+
+    io.unobserve(el);
   });
+},{threshold:0.08, rootMargin:'0px 0px -30px 0px'});
+
+document.querySelectorAll('.anim, .anim-l, .divider, .day-block').forEach(el=>io.observe(el));
+
+// Standalone stamps (outside day-block) visible by default approach: observe individually
+document.querySelectorAll('.sec-wrap .stamp').forEach(s=>{
+  const sio = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); sio.unobserve(e.target); }});
+  },{threshold:0.3});
+  sio.observe(s);
+});
 </script>
 </body>
 </html>
