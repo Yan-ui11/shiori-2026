@@ -150,6 +150,7 @@ a{color:var(--green);text-decoration:none}
 .divider{
   display:flex;align-items:center;gap:12px;
   padding:36px 24px 4px;
+  position:relative;
 }
 .divider-txt{
   font-family:'Caveat','Yomogi',cursive;
@@ -422,9 +423,9 @@ a{color:var(--green);text-decoration:none}
   from{opacity:0;transform:translateX(60px)}
   to{opacity:.88;transform:none}
 }
-.chara-deco{display:block;width:auto;pointer-events:none;opacity:.7;filter:drop-shadow(-2px 0 10px rgba(0,0,0,.3))}
-.chara-deco-r{height:105px;float:right;margin:-15px -4px 6px 10px;transform:rotate(2deg)}
-.chara-deco-l{height:105px;float:left;margin:-15px 10px 6px -4px;transform:scaleX(-1) rotate(-2deg)}
+.chara-deco{position:absolute;height:64px;width:auto;pointer-events:none;opacity:.68;filter:drop-shadow(-1px 0 8px rgba(0,0,0,.22));top:2px}
+.chara-deco-r{right:0}
+.chara-deco-l{left:0;transform:scaleX(-1)}
 </style>
 </head>
 <body>
@@ -680,11 +681,11 @@ a{color:var(--green);text-decoration:none}
   </div>
 </div>
 
-<img class="chara-deco chara-deco-r" alt="">
 <!-- ── DAY 2 ── -->
 <div class="divider anim">
   <span class="divider-txt">Day 2</span>
   <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,7 Q60,12 120,6 Q180,0 240,8 Q270,12 300,6"/></svg>
+  <img class="chara-deco chara-deco-r" alt="">
 </div>
 <div class="day-block anim-l">
   <div class="day-heading">
@@ -838,6 +839,7 @@ a{color:var(--green);text-decoration:none}
 <div class="divider anim">
   <span class="divider-txt">宿泊先</span>
   <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,8 Q60,3 120,9 Q190,15 260,7 Q280,4 300,8"/></svg>
+  <img class="chara-deco chara-deco-l" alt="">
 </div>
 <div class="sec-wrap">
 
@@ -862,7 +864,6 @@ a{color:var(--green);text-decoration:none}
     </div>
   </div>
 
-<img class="chara-deco chara-deco-l" alt="">
   <div class="card anim">
     <div class="card-head">
       <div>
@@ -1029,11 +1030,11 @@ a{color:var(--green);text-decoration:none}
   <div class="note anim"><div class="note-icon">🎯</div><div><div class="note-title">白州蒸留所 抽選（5/8〜）</div><div class="note-text">当選 → 白州蒸留所 / 外れ → 大王わさび農場。結果が出たらグループLINEで共有。</div></div></div>
 </div>
 
-<img class="chara-deco chara-deco-r" alt="">
 <!-- ══ 持ち物チェック ══ -->
 <div class="divider anim">
   <span class="divider-txt">持ち物チェック</span>
   <svg class="divider-svg" viewBox="0 0 300 16"><path class="divider-path" d="M0,7 Q60,12 120,6 Q200,0 300,8"/></svg>
+  <img class="chara-deco chara-deco-r" alt="">
 </div>
 <div class="sec-wrap">
   <div class="anim">
