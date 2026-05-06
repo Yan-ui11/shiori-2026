@@ -38,7 +38,13 @@ body{
     radial-gradient(ellipse at 85% 70%,rgba(120,90,50,.045) 0%,transparent 45%);
 }
 a{color:var(--green);text-decoration:none}
-.page{max-width:540px;margin:0 auto;padding-bottom:80px}
+.page{
+  max-width:540px;margin:0 auto;padding-bottom:80px;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27540%27%20height=%27320%27%3E%3Cpath%20d=%27M70,320%20L190,185%20L310,320Z%27%20fill=%27%233d6042%27%20opacity=%270.028%27/%3E%3Cpath%20d=%27M230,320%20L360,195%20L490,320Z%27%20fill=%27%23305535%27%20opacity=%270.022%27/%3E%3Cg%20fill=%27%233d6042%27%20opacity=%270.05%27%3E%3Cpolygon%20points=%276,314%2022,272%2038,314%27/%3E%3Cpolygon%20points=%2710,293%2022,253%2034,293%27/%3E%3Crect%20x=%2720%27%20y=%27314%27%20width=%274%27%20height=%276%27/%3E%3C/g%3E%3Cg%20fill=%27%233d6042%27%20opacity=%270.05%27%3E%3Cpolygon%20points=%27502,314%20518,272%20534,314%27/%3E%3Cpolygon%20points=%27506,293%20518,253%20530,293%27/%3E%3Crect%20x=%27516%27%20y=%27314%27%20width=%274%27%20height=%276%27/%3E%3C/g%3E%3Cellipse%20cx=%27128%27%20cy=%2788%27%20rx=%2714%27%20ry=%276%27%20fill=%27%233d6042%27%20opacity=%270.034%27%20transform=%27rotate(-28,128,88)%27/%3E%3Cellipse%20cx=%27144%27%20cy=%2778%27%20rx=%2710%27%20ry=%275%27%20fill=%27%233d6042%27%20opacity=%270.028%27%20transform=%27rotate(14,144,78)%27/%3E%3Cellipse%20cx=%27412%27%20cy=%27168%27%20rx=%2714%27%20ry=%276%27%20fill=%27%233d6042%27%20opacity=%270.034%27%20transform=%27rotate(24,412,168)%27/%3E%3Cellipse%20cx=%27398%27%20cy=%27158%27%20rx=%2710%27%20ry=%275%27%20fill=%27%233d6042%27%20opacity=%270.028%27%20transform=%27rotate(-14,398,158)%27/%3E%3Cellipse%20cx=%27268%27%20cy=%27140%27%20rx=%2716%27%20ry=%277%27%20fill=%27%233d6042%27%20opacity=%270.022%27%20transform=%27rotate(6,268,140)%27/%3E%3C/svg%3E");
+  background-repeat:repeat-y;
+  background-size:100% auto;
+  background-position:center top;
+}
 .nature-panorama{width:100%;display:block;line-height:0;margin-bottom:0}
 .nature-footer{width:100%;display:block;line-height:0;margin-top:0}
 
@@ -406,7 +412,7 @@ a{color:var(--green);text-decoration:none}
 }
 .cover-chara{
   position:absolute;bottom:0;right:0;
-  height:clamp(180px,48svh,380px);width:auto;
+  height:clamp(130px,34svh,240px);width:auto;
   z-index:15;
   opacity:.88;
   filter:drop-shadow(-4px 0 18px rgba(0,0,0,.9));
@@ -416,6 +422,9 @@ a{color:var(--green);text-decoration:none}
   from{opacity:0;transform:translateX(60px)}
   to{opacity:.88;transform:none}
 }
+.chara-deco{display:block;width:auto;pointer-events:none;opacity:.7;filter:drop-shadow(-2px 0 10px rgba(0,0,0,.3))}
+.chara-deco-r{height:105px;float:right;margin:-15px -4px 6px 10px;transform:rotate(2deg)}
+.chara-deco-l{height:105px;float:left;margin:-15px 10px 6px -4px;transform:scaleX(-1) rotate(-2deg)}
 </style>
 </head>
 <body>
@@ -671,6 +680,7 @@ a{color:var(--green);text-decoration:none}
   </div>
 </div>
 
+<img class="chara-deco chara-deco-r" alt="">
 <!-- ── DAY 2 ── -->
 <div class="divider anim">
   <span class="divider-txt">Day 2</span>
@@ -852,6 +862,7 @@ a{color:var(--green);text-decoration:none}
     </div>
   </div>
 
+<img class="chara-deco chara-deco-l" alt="">
   <div class="card anim">
     <div class="card-head">
       <div>
@@ -1018,6 +1029,7 @@ a{color:var(--green);text-decoration:none}
   <div class="note anim"><div class="note-icon">🎯</div><div><div class="note-title">白州蒸留所 抽選（5/8〜）</div><div class="note-text">当選 → 白州蒸留所 / 外れ → 大王わさび農場。結果が出たらグループLINEで共有。</div></div></div>
 </div>
 
+<img class="chara-deco chara-deco-r" alt="">
 <!-- ══ 持ち物チェック ══ -->
 <div class="divider anim">
   <span class="divider-txt">持ち物チェック</span>
@@ -1120,6 +1132,12 @@ a{color:var(--green);text-decoration:none}
 </footer>
 
 <script>
+// Populate deco character images from cover src
+(function(){
+  var src=document.querySelector('.cover-chara');
+  if(src)document.querySelectorAll('.chara-deco').forEach(function(img){img.src=src.src});
+})();
+
 // Checklist
 function toggle(el){
   el.classList.toggle('checked');
