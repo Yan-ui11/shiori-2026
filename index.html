@@ -30,11 +30,17 @@ body{
   font-size:14px;
   line-height:1.7;
   background-image:
-    radial-gradient(ellipse at 15% 40%,rgba(180,140,80,.07) 0%,transparent 55%),
-    radial-gradient(ellipse at 85% 70%,rgba(140,100,60,.05) 0%,transparent 45%);
+    radial-gradient(ellipse 45% 28% at 0% 15%,rgba(42,80,48,.06) 0%,transparent 65%),
+    radial-gradient(ellipse 45% 28% at 100% 35%,rgba(42,80,48,.05) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 22% at 0% 75%,rgba(42,80,48,.055) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 22% at 100% 85%,rgba(42,80,48,.045) 0%,transparent 60%),
+    radial-gradient(ellipse at 15% 40%,rgba(160,120,60,.06) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 70%,rgba(120,90,50,.045) 0%,transparent 45%);
 }
 a{color:var(--green);text-decoration:none}
 .page{max-width:540px;margin:0 auto;padding-bottom:80px}
+.nature-panorama{width:100%;display:block;line-height:0;margin-bottom:0}
+.nature-footer{width:100%;display:block;line-height:0;margin-top:0}
 
 /* ───── COVER ───── */
 .cover{
@@ -504,6 +510,49 @@ a{color:var(--green);text-decoration:none}
 
 <!-- ══════════════════════════ MAIN ══════════════════════════ -->
 <main class="page">
+<!-- ── 上高地 山岳パノラマ ── -->
+<svg class="nature-panorama" viewBox="0 0 540 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="natsky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c5ddd8"/>
+      <stop offset="55%" stop-color="#ccdfc0"/>
+      <stop offset="100%" stop-color="#b8d4a8"/>
+    </linearGradient>
+    <linearGradient id="natgnd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d5535"/>
+      <stop offset="100%" stop-color="#f5ead0"/>
+    </linearGradient>
+  </defs>
+  <!-- 空 -->
+  <rect fill="url(#natsky)" width="540" height="140"/>
+  <!-- 遠景・岩峰（穂高連峰） -->
+  <path d="M0,78 L22,55 L40,64 L62,38 L80,50 L100,30 L122,46 L144,22 L162,40 L180,26 L200,44 L220,24 L242,42 L262,28 L282,46 L305,30 L328,50 L352,34 L374,54 L400,36 L424,56 L450,40 L475,58 L500,42 L524,52 L540,46 L540,140 L0,140Z"
+        fill="#7aa0a0" opacity=".42"/>
+  <!-- 中景・森林稜線 -->
+  <path d="M0,94 L30,76 L65,88 L100,72 L138,86 L174,74 L210,88 L246,76 L282,90 L318,78 L354,92 L390,78 L426,92 L462,78 L498,90 L530,78 L540,82 L540,140 L0,140Z"
+        fill="#3e7248" opacity=".78"/>
+  <!-- 手前・樹林シルエット（なだらか） -->
+  <path d="M0,106 Q14,96 28,106 Q42,94 56,106 Q70,96 84,106 Q98,94 112,106 Q126,96 140,106 Q154,94 168,106 Q182,96 196,106 Q210,94 224,106 Q238,96 252,106 Q266,94 280,106 Q294,96 308,106 Q322,94 336,106 Q350,96 364,106 Q378,94 392,106 Q406,96 420,106 Q434,94 448,106 Q462,96 476,106 Q490,94 504,106 Q518,96 532,106 L540,106 L540,140 L0,140Z"
+        fill="#245030"/>
+  <!-- 松の木（個別） -->
+  <polygon points="18,106 23,88 28,106"  fill="#173520"/>
+  <polygon points="44,106 50,84 56,106"  fill="#1a3d24"/>
+  <polygon points="76,106 82,90 88,106"  fill="#173520"/>
+  <polygon points="108,106 114,86 120,106" fill="#1a3d24"/>
+  <polygon points="144,106 150,82 156,106" fill="#173520"/>
+  <polygon points="178,106 184,88 190,106" fill="#1a3d24"/>
+  <polygon points="214,106 220,85 226,106" fill="#173520"/>
+  <polygon points="250,106 256,89 262,106" fill="#1a3d24"/>
+  <polygon points="286,106 292,84 298,106" fill="#173520"/>
+  <polygon points="322,106 328,87 334,106" fill="#1a3d24"/>
+  <polygon points="358,106 364,83 370,106" fill="#173520"/>
+  <polygon points="394,106 400,88 406,106" fill="#1a3d24"/>
+  <polygon points="430,106 436,85 442,106" fill="#173520"/>
+  <polygon points="464,106 470,89 476,106" fill="#1a3d24"/>
+  <polygon points="500,106 506,86 512,106" fill="#173520"/>
+  <!-- 地面から紙色へのグラデーション -->
+  <rect x="0" y="122" width="540" height="18" fill="url(#natgnd)"/>
+</svg>
 
 <!-- ── DAY 0 ── -->
 <div class="divider anim">
@@ -1032,6 +1081,39 @@ a{color:var(--green);text-decoration:none}
 </div>
 
 </main>
+
+<!-- ── 森の麓シルエット ── -->
+<svg class="nature-footer" viewBox="0 0 540 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="fgnd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5ead0"/>
+      <stop offset="40%" stop-color="#b8d4a8"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#fgnd)" width="540" height="80"/>
+  <!-- 奥の稜線 -->
+  <path d="M0,40 L40,24 L80,36 L120,20 L165,34 L210,18 L255,32 L300,18 L345,34 L390,20 L435,36 L480,22 L540,34 L540,80 L0,80Z"
+        fill="#4a7a52" opacity=".5"/>
+  <!-- 手前の樹林 -->
+  <path d="M0,55 Q18,44 36,55 Q54,42 72,55 Q90,44 108,55 Q126,42 144,55 Q162,44 180,55 Q198,42 216,55 Q234,44 252,55 Q270,42 288,55 Q306,44 324,55 Q342,42 360,55 Q378,44 396,55 Q414,42 432,55 Q450,44 468,55 Q486,42 504,55 Q522,44 540,55 L540,80 L0,80Z"
+        fill="#2a5032"/>
+  <!-- 松の木 -->
+  <polygon points="12,55 17,40 22,55"  fill="#1a3820"/>
+  <polygon points="48,55 54,38 60,55"  fill="#1e4024"/>
+  <polygon points="88,55 94,41 100,55" fill="#1a3820"/>
+  <polygon points="130,55 136,38 142,55" fill="#1e4024"/>
+  <polygon points="170,55 176,40 182,55" fill="#1a3820"/>
+  <polygon points="214,55 220,37 226,55" fill="#1e4024"/>
+  <polygon points="256,55 262,39 268,55" fill="#1a3820"/>
+  <polygon points="298,55 304,38 310,55" fill="#1e4024"/>
+  <polygon points="342,55 348,40 354,55" fill="#1a3820"/>
+  <polygon points="382,55 388,37 394,55" fill="#1e4024"/>
+  <polygon points="424,55 430,39 436,55" fill="#1a3820"/>
+  <polygon points="466,55 472,38 478,55" fill="#1e4024"/>
+  <polygon points="508,55 514,40 520,55" fill="#1a3820"/>
+  <!-- 地面 -->
+  <rect x="0" y="70" width="540" height="10" fill="#245030" opacity=".6"/>
+</svg>
 
 <footer class="footer">
   <div class="footer-text">2026.07.10 – 12 &nbsp;·&nbsp; Aki · Tetsupay · Makoto</div>
