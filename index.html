@@ -399,15 +399,16 @@ a{color:var(--green);text-decoration:none}
   animation:drawStroke 1.3s 2.1s cubic-bezier(.22,1,.36,1) forwards;
 }
 .cover-chara{
-  position:absolute;bottom:55px;right:-8px;
-  height:clamp(180px,46svh,360px);width:auto;
-  z-index:8;
-  filter:drop-shadow(-5px 2px 20px rgba(0,0,0,1)) brightness(.82) saturate(.7);
-  animation:charaIn 1s 1s cubic-bezier(.22,1,.36,1) both;
+  position:absolute;bottom:0;right:0;
+  height:clamp(180px,48svh,380px);width:auto;
+  z-index:15;
+  opacity:.88;
+  filter:drop-shadow(-4px 0 18px rgba(0,0,0,.9));
+  animation:charaIn .9s .8s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes charaIn{
-  from{opacity:0;transform:translateX(50px) scale(.82)}
-  to{opacity:.9;transform:none}
+  from{opacity:0;transform:translateX(60px)}
+  to{opacity:.88;transform:none}
 }
 </style>
 </head>
